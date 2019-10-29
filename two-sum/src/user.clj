@@ -1,2 +1,2 @@
 (ns user)
-(use 'solutions)
+(use 'two-sum-solution)
