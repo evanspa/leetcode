@@ -8,6 +8,8 @@
 // Output: 7 -> 0 -> 8
 // Explanation: 342 + 465 = 807.
 
+import java.math.BigInteger;
+
 class ListNode {
     final int val;
     ListNode next;
@@ -16,17 +18,31 @@ class ListNode {
 
 public final class AddTwoNumbersSolution {
 
-    private static int toInt(final ListNode node) {
+     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        final BigInteger sum = toInt(l1).add(toInt(l2));
+        final StringBuilder sb = new StringBuilder(sum.toString());
+        sb.reverse();
+        final char digits[] = sb.toString().toCharArray();
+        if (digits.length > 0) {
+            final ListNode node = new ListNode(Character.getNumericValue(digits[0]));
+            ListNode prevNode = node;
+            for (int i = 1; i < digits.length; i++) {
+                final ListNode newNode = new ListNode(Character.getNumericValue(digits[i]));
+                prevNode.next = newNode;                
+                prevNode = newNode;
+            }   
+            return node;
+        }        
+        return null;
+    }
+    
+    private static BigInteger toInt(final ListNode node) {
         final StringBuilder sb = new StringBuilder();
         ListNode currentNode = node;
         while (currentNode != null) {
             sb.insert(0, currentNode.val);
             currentNode = currentNode.next;
         }
-        return Integer.parseInt(sb.toString());
-    }
-
-    public final ListNode addTwoNumbers(final ListNode l1, final ListNode l2) {
-        return toInt(l1) + toInt(l2);
+        return new BigInteger(sb.toString());
     }
 }
