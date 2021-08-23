@@ -9,7 +9,8 @@
 ;; Because nums[0] + nums[1] = 2 + 7 = 9,
 ;; return [0, 1].
 
-(ns two-sum-solution)
+(ns two-sum-solution
+  (:require [clojure.test :refer :all]))
 
 ;; O(n) solution
 (defn two-sum [vals target]
@@ -24,7 +25,6 @@
         (if prev-idx
           [prev-idx i]
           (recur (next vals) (inc i) (assoc indexes val i)))))))
-
 
 (defn -main [& args]
   (is (= [2 3] (two-sum [4 8 12 2 16] 14)))
