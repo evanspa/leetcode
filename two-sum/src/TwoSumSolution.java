@@ -17,14 +17,14 @@ public final class TwoSumSolution {
 
     // O(n) solution
     public static int[] twoSum(final int values[], final int target) {
-        final Map<Integer,Integer> prevIndexes = new HashMap<>();
+        final Map<Integer,Integer> complements = new HashMap<>();
         for (int i = 0; i < values.length; i++) {
-            final int diff = target - values[i];
-            final Integer prevIndex = prevIndexes.get(diff);
-            if (prevIndex != null) {
-                return new int[] { prevIndex, i };
+            final int complement = target - values[i];
+            final Integer foundComplement = complements.get(complement);
+            if (foundComplement != null) {
+                return new int[] { foundComplement, i };
             }
-            prevIndexes.put(values[i], i);
+            complements.put(values[i], i);
         }
         return null;
     }

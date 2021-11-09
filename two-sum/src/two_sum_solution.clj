@@ -20,8 +20,8 @@
     (if (empty? vals)
       nil
       (let [val (first vals)
-            difference (- target val)
-            prev-idx (get indexes difference)]
+            complement (- target val)
+            prev-idx (get indexes complement)]
         (if prev-idx
           [prev-idx i]
           (recur (next vals) (inc i) (assoc indexes val i)))))))
