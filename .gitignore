@@ -1,3 +1,5 @@
 target
 .nrepl-port
 *.class
+out/
+build/
