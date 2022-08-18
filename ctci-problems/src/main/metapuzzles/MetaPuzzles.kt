@@ -33,6 +33,11 @@ fun getMinProblemCount(S: Array<Int>): Int {
 
 // (Level 1) Cafeteria, https://www.metacareers.com/profile/coding_puzzles/?puzzle=203188678289677
 fun getMaxAdditionalDinersCount(N: Long, K: Long, M: Int, S: Array<Long>): Long {
+    
+    return 0
+}
+
+fun getMaxAdditionalDinersCount_orig(N: Long, K: Long, M: Int, S: Array<Long>): Long {
     val unavail:MutableMap<Long, Long> = HashMap()
     for (s in S) {
         for (i in s-K..s+K) {
