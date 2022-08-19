@@ -25,7 +25,6 @@ public final class LongestIncreasingSubsequence {
         return max;
     }
 
-
     public static void main(final String args[]) {
         Assert.assertEquals(4, lengthOfLis(new int[] { 10,9,2,5,3,7,101,18 }));
         Assert.assertEquals(4, lengthOfLis(new int[] { 0,1,0,3,2,3 }));
