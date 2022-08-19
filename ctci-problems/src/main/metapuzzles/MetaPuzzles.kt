@@ -1,5 +1,8 @@
 package metapuzzles
 
+import java.util.*
+import kotlin.collections.HashMap
+
 // (Level 1) Rotary Lock Puzzle, https://www.metacareers.com/profile/coding_puzzles/?puzzle=990060915068194
 fun getMinCodeEntryTime(N: Int, M: Int, C: Array<Int>): Long {
     var totalTime = 0L
@@ -33,8 +36,21 @@ fun getMinProblemCount(S: Array<Int>): Int {
 
 // (Level 1) Cafeteria, https://www.metacareers.com/profile/coding_puzzles/?puzzle=203188678289677
 fun getMaxAdditionalDinersCount(N: Long, K: Long, M: Int, S: Array<Long>): Long {
-    
-    return 0
+    Arrays.sort(S)
+    var additional = 0L
+    var start = 1L
+    for (s in S) {
+        val end = s - K
+        if (start < end) {
+            additional += Math.ceil((end - start).toDouble() / (K + 1)).toLong()
+        }
+        start = s + K + 1;
+    }
+    if (start < N) {
+        println("ceil of: ${N} - ${start} / K + 1 = ${Math.ceil((N - start).toDouble() / (K + 1)).toLong()}")
+        additional += Math.ceil((N - start).toDouble() / (K + 1)).toLong()
+    }
+    return additional
 }
 
 fun getMaxAdditionalDinersCount_orig(N: Long, K: Long, M: Int, S: Array<Long>): Long {
