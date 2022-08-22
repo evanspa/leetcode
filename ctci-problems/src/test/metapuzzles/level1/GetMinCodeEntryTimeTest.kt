@@ -1,4 +1,6 @@
-import metapuzzles.getMinCodeEntryTime
+package metapuzzles.level1
+
+import metapuzzles.level1.getMinCodeEntryTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

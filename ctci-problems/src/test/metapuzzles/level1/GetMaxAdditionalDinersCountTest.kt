@@ -1,4 +1,6 @@
-import metapuzzles.getMaxAdditionalDinersCount
+package metapuzzles.level1
+
+import metapuzzles.level1.getMaxAdditionalDinersCount
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

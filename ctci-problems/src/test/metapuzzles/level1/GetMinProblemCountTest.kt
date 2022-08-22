@@ -1,4 +1,6 @@
-import metapuzzles.getMinProblemCount
+package metapuzzles.level1
+
+import metapuzzles.level1.getMinProblemCount
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
