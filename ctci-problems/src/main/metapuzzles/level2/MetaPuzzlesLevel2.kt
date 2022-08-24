@@ -30,11 +30,11 @@ fun getSecondsRequired(N: Long, F: Int, P: Array<Long>): Long {
 
 // Missing Mail
 fun getMaxExpectedProfit(N: Int, V: Array<Int>, C: Int, S: Double): Double {
-    return getProfileInRange(1, 5, V, C, S)
+    return getProfitInRange(1, 5, V, C, S)
 }
 
 // Missing Mail helper function
-fun getProfileInRange(start: Int, end: Int, V: Array<Int>, C: Int, S: Double):Double {
+fun getProfitInRange(start: Int, end: Int, V: Array<Int>, C: Int, S: Double):Double {
     var sum = (V.sum() - (2 * C)) * (1-S).pow(end - start - 1)
     var i = 1
     var exp = 2
