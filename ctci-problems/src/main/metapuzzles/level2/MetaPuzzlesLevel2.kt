@@ -1,6 +1,7 @@
 package metapuzzles.level2
 
 import java.util.Arrays
+import kotlin.math.pow
 
 // Hop
 fun getSecondsRequired(N: Long, F: Int, P: Array<Long>): Long {
@@ -25,4 +26,32 @@ fun getSecondsRequired(N: Long, F: Int, P: Array<Long>): Long {
     }
     totalHops += F // leap frog over all the frogs landing on Pad N
     return totalHops
+}
+
+// Missing Mail
+fun getMaxExpectedProfit(N: Int, V: Array<Int>, C: Int, S: Double): Double {
+    return getProfileInRange(1, 5, V, C, S)
+}
+
+// Missing Mail helper function
+fun getProfileInRange(start: Int, end: Int, V: Array<Int>, C: Int, S: Double):Double {
+    var sum = (V.sum() - (2 * C)) * (1-S).pow(end - start - 1)
+    var i = 1
+    var exp = 2
+    while (i <= (end - start - 1)) {
+        var intermediateSum = 0.0
+        intermediateSum += V[start - 1]
+        intermediateSum += V[end - 1]
+        var j = i + 1
+        while (j <= (end - start - 1)) {
+            intermediateSum += V[j]
+            j++
+        }
+        intermediateSum -= (2 * C)
+        intermediateSum *= (S * (1 - S).pow(exp))
+        sum += intermediateSum
+        i++
+        exp--
+    }
+    return sum
 }
